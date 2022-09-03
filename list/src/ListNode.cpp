@@ -1,7 +1,21 @@
 #include "../include/ListNode.h"
 
-Node::Node(int val) {
-	value = val;
+std::ostream& operator<<(std::ostream& cout, ListNode *list) {
+	Node *head = list->head();
+	if (head == nullptr) {
+		cout << "null list" << std::endl;
+	} else {
+		while (head != nullptr) {
+			if (head->next != nullptr) {
+				cout << head->value << "-";
+			} else {
+				cout << head->value;
+			}
+			head = head->next;
+		}
+		cout << std::endl;
+	}
+	return cout;
 }
 
 ListNode::ListNode() {

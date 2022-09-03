@@ -1,13 +1,4 @@
-#include <iostream>
-#include "Logger.h"
-
-struct Node {
-    Node(int val);
-
-    // int value = this == nullptr ? INT64_MIN : value;
-    int value;
-    Node *next = nullptr;
-};
+#include "Node.h"
 
 class ListNode {
 public:
@@ -44,5 +35,6 @@ private:
     int mCount = 0;
 };
 
+std::ostream& operator<<(std::ostream& cout, ListNode *list);
 Node* merge(Node *head1, Node *head2);
 
