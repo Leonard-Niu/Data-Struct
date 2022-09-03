@@ -8,6 +8,7 @@ INC:=$(wildcard ${INC_PATH}*.h)
 SRC:=$(wildcard ${SRC_PATH}*.cpp)
 OBJ:=$(patsubst ${SRC_PATH}%.cpp, ${OBJ_PATH}%.o, ${SRC})
 
+TARGET_OBJ:=output.o
 TARGET:=output
 
 all:${TARGET}

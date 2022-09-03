@@ -1,5 +1,48 @@
 #include <iostream>
+#include "Logger.h"
+
+struct Node {
+    Node(int val);
+
+    // int value = this == nullptr ? INT64_MIN : value;
+    int value;
+    Node *next = nullptr;
+};
 
 class ListNode {
+public:
+    ListNode();
+    ~ListNode();
 
+    // query head of the list
+    Node* head();
+    // query tail of the list
+    Node* tail();
+    void init(int value);
+    // from head to tail
+    void initList(int index);
+    // from head to tail
+    void destory();
+
+    void print();
+    // record node num of list
+    int getCount();
+
+    void add(int value);
+    void add(int value, int index);
+    // can only use traversal method
+    void remove();
+    void remove(int index);
+
+    void reverse();
+
+private:
+    Node* reverseCore(Node *head);
+    Node *mDummyHead = nullptr;
+    Node *mTail = nullptr;
+    Node *mPreTail = nullptr;
+    int mCount = 0;
 };
+
+Node* merge(Node *head1, Node *head2);
+
