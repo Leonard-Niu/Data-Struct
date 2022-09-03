@@ -1,7 +1,7 @@
-#include "../include/ListNode.h"
+#include "../include/List.h"
 
 void basicTest() {
-    ListNode *list1 = new ListNode();
+    List *list1 = new List();
     list1->remove();
     std::cout << list1;
     list1->add(9);

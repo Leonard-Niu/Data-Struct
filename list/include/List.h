@@ -1,9 +1,9 @@
 #include "Node.h"
 
-class ListNode {
+class List {
 public:
-    ListNode();
-    ~ListNode();
+    List();
+    ~List();
 
     // query head of the list
     Node* head();
@@ -35,6 +35,6 @@ private:
     int mCount = 0;
 };
 
-std::ostream& operator<<(std::ostream& cout, ListNode *list);
+std::ostream& operator<<(std::ostream& cout, List *list);
 Node* merge(Node *head1, Node *head2);
 

@@ -1,6 +1,6 @@
-#include "../include/ListNode.h"
+#include "../include/List.h"
 
-std::ostream& operator<<(std::ostream& cout, ListNode *list) {
+std::ostream& operator<<(std::ostream& cout, List *list) {
 	Node *head = list->head();
 	if (head == nullptr) {
 		cout << "null list" << std::endl;
@@ -18,13 +18,13 @@ std::ostream& operator<<(std::ostream& cout, ListNode *list) {
 	return cout;
 }
 
-ListNode::ListNode() {
+List::List() {
 	mDummyHead = new Node(-1);
 	mPreTail = mDummyHead;
 	mTail = mDummyHead->next;
 }
 
-ListNode::~ListNode() {
+List::~List() {
 	delete mDummyHead;
 	// avoid random pointer
 	mDummyHead = nullptr;
@@ -32,19 +32,19 @@ ListNode::~ListNode() {
 	mTail = nullptr;
 }
 
-Node* ListNode::head() {
+Node* List::head() {
 	return mDummyHead->next;
 }
 
-Node* ListNode::tail() {
+Node* List::tail() {
 	return mTail;
 }
 
-int ListNode::getCount() {
+int List::getCount() {
 	return mCount;
 }
 
-void ListNode::init(int value) {
+void List::init(int value) {
 	Node *newNode = new Node(value);
 	mDummyHead->next = newNode;
 	mTail = newNode;
@@ -52,7 +52,7 @@ void ListNode::init(int value) {
 	++mCount;
 }
 
-void ListNode::initList(int index) {
+void List::initList(int index) {
 	Node *pre = mDummyHead;
 	for (int i = 1; i <= index; ++i) {
 		Node *newNode = new Node(i);
@@ -64,7 +64,7 @@ void ListNode::initList(int index) {
 	}
 }
 
-void ListNode::destory() {
+void List::destory() {
 	Node *pre = mDummyHead;
 	while (pre->next != nullptr) {
 		Node *p = pre->next;
@@ -77,7 +77,7 @@ void ListNode::destory() {
 	mPreTail = mDummyHead;
 }
 
-void ListNode::print() {
+void List::print() {
 	Node *head = this->head();
 	if (head == nullptr) {
 		std::cout << "null list" << std::endl;
@@ -94,7 +94,7 @@ void ListNode::print() {
 	}
 }
 
-Node* ListNode::reverseCore(Node *head) {
+Node* List::reverseCore(Node *head) {
 	if (head == nullptr || head->next == nullptr) {
 		return head;
 	}
@@ -107,12 +107,12 @@ Node* ListNode::reverseCore(Node *head) {
 	return newHead;
 }
 
-void ListNode::reverse() {
+void List::reverse() {
 	Node *head = this->head();
 	this->mDummyHead->next = this->reverseCore(head);
 }
 
-void ListNode::add(int value) {
+void List::add(int value) {
 	if (this->head() == nullptr) {
 		this->init(value);
 	} else {
@@ -124,7 +124,7 @@ void ListNode::add(int value) {
 	}
 }
 
-void ListNode::add(int value, int index) {
+void List::add(int value, int index) {
 	if (index < 0) {
 		std::cerr << "input index err! " << index << std::endl;
 		return;
@@ -146,7 +146,7 @@ void ListNode::add(int value, int index) {
 	}
 }
 
-void ListNode::remove() {
+void List::remove() {
 	if (this->head() == nullptr) {
 		return;
 	} else {
@@ -163,7 +163,7 @@ void ListNode::remove() {
 	}
 }
 
-void ListNode::remove(int index) {
+void List::remove(int index) {
 	if (index < 0) {
 		std::cerr << "input index err! " << index << std::endl;
 		return;
