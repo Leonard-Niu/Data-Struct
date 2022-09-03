@@ -1,4 +1,5 @@
 #include "../include/List.h"
+#include "../include/Logger.h"
 
 void basicTest() {
     List *list1 = new List();
@@ -10,9 +11,7 @@ void basicTest() {
     list1->print();
     list1->remove(1);
     list1->print();
-
-    Node *p = new Node(1);
-    std::cout << p;
+    Logger::d(list1->TAG, "yes");
 
     // list1->initList(5);
     // list1->print();

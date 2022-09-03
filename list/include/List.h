@@ -1,3 +1,6 @@
+#ifndef LIST_H
+#define LIST_H
+
 #include "Node.h"
 
 class List {
@@ -27,6 +30,8 @@ public:
 
     void reverse();
 
+    static std::string TAG;
+
 private:
     Node* reverseCore(Node *head);
     Node *mDummyHead = nullptr;
@@ -38,3 +43,5 @@ private:
 std::ostream& operator<<(std::ostream& cout, List *list);
 Node* merge(Node *head1, Node *head2);
 
+
+#endif

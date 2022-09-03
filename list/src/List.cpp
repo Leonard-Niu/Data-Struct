@@ -18,6 +18,8 @@ std::ostream& operator<<(std::ostream& cout, List *list) {
 	return cout;
 }
 
+std::string List::TAG = "List";
+
 List::List() {
 	mDummyHead = new Node(-1);
 	mPreTail = mDummyHead;

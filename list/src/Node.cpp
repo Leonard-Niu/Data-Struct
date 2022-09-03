@@ -1,5 +1,7 @@
 #include "../include/Node.h"
 
+std::string Node::TAG = "Node";
+
 Node::Node(int val) {
 	value = val;
 }
