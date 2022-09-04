@@ -16,7 +16,15 @@ void Node::print() {
 
 std::ostream& operator<<(std::ostream& cout, Node *node) {
     if (node != nullptr) {
-        cout << "node value:" << node->value << std::endl;
+        while (node != nullptr) {
+            if (node->next != nullptr) {
+                cout << node->value << "-";
+            } else {
+                cout << node->value;
+            }
+            node = node->next;
+        }
+        cout << std::endl;
     } else {
         cout << "node null!" << std::endl;
     }
