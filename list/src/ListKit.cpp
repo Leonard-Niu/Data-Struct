@@ -65,3 +65,16 @@ Node* ListKit::seprateMid(List *list) {
     pre->next = nullptr;
     return mid;
 }
+
+Node* ListKit::mergeInOrder(List *l1, List *l2) {
+    Node *dummyHead = new Node(-1);
+
+    while (l1 != nullptr && l2 != nullptr) {
+        
+    }
+
+    Node *head = dummyHead->next;
+    dummyHead->next = nullptr;
+    delete dummyHead;
+    return head;
+}
