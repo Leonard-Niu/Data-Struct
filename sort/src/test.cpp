@@ -8,7 +8,6 @@
 int main(int argc, char **argv) {
     std::vector<int> in = {9,8,7,6,5,4,3,2,1};
     std::cout << in;
-    PartQuickSort(in, 3);
-    std::cout << in;
+    std::cout << BigK(in, 6) << std::endl;
     return 0;
 }

@@ -77,3 +77,26 @@ void PartQuickSort(std::vector<int>& in, int k) {
         }
     }
 }
+
+int BigK(std::vector<int>& in, int k) {
+    if (k > in.size()) {
+        return BigK(in, in.size() - 1);
+    }
+
+    int left = 0;
+    int right = in.size() - 1;
+    int tmpIndex = left;
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        tmpIndex = PartQuickSortCore(in, left, right);
+
+        if (tmpIndex == in.size() - 1 - k + 1) { // current kth big index(+1 means start from 1, not from 0)
+            break;
+        } else if (tmpIndex < in.size() - 1 - k + 1) {
+            left = tmpIndex + 1;
+        } else {
+            right = tmpIndex - 1;
+        }
+    }
+    return in[tmpIndex];
+}
