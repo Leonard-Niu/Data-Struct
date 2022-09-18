@@ -22,11 +22,15 @@ int main(int argc, char **argv) {
     struct box box1 = {
         .length = 10,
         .width = 10,
-        // .list = {
-        //     .next = NULL,
-        //     .prev = NULL,
-        // },
+        // static init
+        .list = LIST_HEAD_INIT(box1.list),
     };
+    struct box box2 = {
+        .length = 5,
+        .width = 5,
+    };
+
+    list_add(&(box2.list), &(box1.list));
     forw_trav(&box1);
     return 0;
 }
