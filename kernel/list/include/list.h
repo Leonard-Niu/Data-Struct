@@ -2,6 +2,7 @@
 #define LIST_H
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
 
